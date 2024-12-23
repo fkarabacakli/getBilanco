@@ -1,9 +1,9 @@
-import requests
+import requestsi
 from bs4 import BeautifulSoup
 import pandas as pd
 import threading
 
-def get_bilanco(hisse):
+def get_balance(hisse):
     url = "https://www.isyatirim.com.tr/tr-tr/analiz/hisse/Sayfalar/sirket-karti.aspx?hisse=" + hisse
     r = requests.get(url)
     s = BeautifulSoup(r.text,"html.parser")
@@ -69,7 +69,7 @@ def get_bilanco(hisse):
 def main():
     stocks = ["THYAO","ASELS"]
     for stock in stocks:
-        t = threading.Thread(target=get_bilanco, args=(stock,))
+        t = threading.Thread(target=get_balance, args=(stock,))
         t.start()
 
 
